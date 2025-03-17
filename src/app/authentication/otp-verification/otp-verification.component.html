@@ -1,0 +1,51 @@
+<div class="card-wrapper">
+  <mat-card appearance="outlined">
+    <h1 class="h1">Account Verification</h1>
+    <mat-card-content>
+      <form #otpForm="ngForm" (ngSubmit)="verifyUser()">
+        <mat-form-field appearance="fill" class="input-field">
+          <mat-label>Enter Verification Code</mat-label>
+          <input
+            matInput
+            [(ngModel)]="verificationCode"
+            name="verificationCode" 
+            required 
+            #verificationCodeControl="ngModel" 
+          />
+          <mat-error 
+            *ngIf="verificationCodeControl.invalid && verificationCodeControl.touched">
+            Verification code is required.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="button"
+          [disabled]="otpForm.invalid || isSubmitting">
+          <span *ngIf="!isSubmitting">Verify</span>
+          <mat-progress-spinner
+            *ngIf="isSubmitting"
+            mode="indeterminate"
+            diameter="20"
+            color="accent">
+          </mat-progress-spinner>
+        </button>
+
+        <div *ngIf="verificationSuccessful" style="margin-top: 10px;">
+          <a routerLink="/login" style="text-decoration: none; color: #1976d2;">
+            Click Here To Login
+          </a>
+        </div>
+        <div *ngIf="error" class="alert alert-danger" style="background-color: red; color: white; padding: 10px; border-radius: 5px;">
+          {{ error }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success" style="background-color: green; color: white; padding: 10px; border-radius: 5px;">
+          {{ success }}
+        </div>
+    
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

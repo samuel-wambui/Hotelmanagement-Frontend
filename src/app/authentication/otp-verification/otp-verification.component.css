@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centers the card vertically */
+}
+
+mat-card {
+  width: 500px; /* Adjust the card width as needed */
+}
+
+.h1 {
+  color: #6022f0;
+  font-size: large;
+  font-weight: 800;
+  text-align: center; /* Centers the title */
+  margin: 0; /* Remove default margin */
+}
+
+.input-field {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input {
+  height: 30px; /* Adjust the input field height */
+}
+/* .card-wrapper {
+  background-color: #e0e0e0; 
+  padding: 16px; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+} */
+.success {
+  background-color: rgb(18, 170, 18);
+  color:white;
+  border-radius: 3px;
+}
+.button {
+  margin-top: 200;
+}
